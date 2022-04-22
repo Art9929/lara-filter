@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
 
                 $table->string('product')->nullable();
-                $table->string('category')->nullable();
                 $table->string('name')->nullable();
                 $table->string('price')->nullable();
                 $table->string('weight')->nullable();

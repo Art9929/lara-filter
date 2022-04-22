@@ -8,7 +8,7 @@
 @section('content')
 
 		<div  class="container" style="max-width: 50%;">
-        <form method="POST" action="/regprod" enctype="multipart/form-data">
+        <form method="POST" action=" {{ route('regprod') }}" enctype="multipart/form-data">
             @csrf
                 <select class="form-select mb-2" autofocus required name="product">
                 <option selected disabled>Выберите товар</option>
@@ -16,10 +16,11 @@
                     <option value="Полупромышленный кондиционер">Полупромышленный кондиционер</option>
                 </select>
 
-                <select class="form-select form-select-sm mb-5" required name="category">
+                <select class="form-select form-select-sm mb-5" required name="category_id">
                 <option selected disabled >Выберите категорию</option>
-                    <option value="zspr-s">ZSPR-S</option>
-                    <option value="zspr-s">ZS-S</option>
+                    @foreach($categories as $cat)
+                    <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                    @endforeach
                 </select>
 
 				<div class="form-floating">

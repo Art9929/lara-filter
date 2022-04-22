@@ -7,6 +7,14 @@
 <!-- Начало кода -->
 @section('content')
 
+    <div class="container bg-indigo-50 p-3 rounded-3">
+        <div class="">
+            <div class="text-end">
+                <a href="{{ route('add') }}" type="button" class="btn btn-warning">Создать товар</a>
+            </div>
+        </div>
+    </div>
+
 <div class="container" style="padding: 4%;">
     <div>
         <h3>Продуктовая панель</h3>
@@ -18,11 +26,11 @@
                         <div class="row row-cols-2">
                             <span> <h3> {{ $key->name }} </h3> </span>
                             <span style="color: green; text-align: end; font-size: 24px;"> {{ $key->price." руб" }} </span>
-                            <span> {{ $key->category }} </span>
+                            <span> <a href="{{ route('categories', $key->category_id) }}"> {{ $key->category_id }}</a> </span>
                             <span style="color: grey; text-align: end; font-size: 14px;"> {{ $key->weght." кг" }} </span>
-                        </div> 
+                        </div>
 
-                        <span> {{ $key->product }} </span>
+                        <span>  {{ $key->product }} </span>
                         <span> {{ $key->description }} </span>
 
                         <a href="{{ route('one-show-product', $key->id) }}"> <img class="img-thumbnail" src="{{ asset($key->profile_image)  }}" title="{{ $key->name }}"></a>

@@ -18,8 +18,7 @@
 <body>
 
     <div class="container">
-        <span class="absolute mt-4 bg-indigo-50"> qwerty </span>
-                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+       <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <a href="{{ route('home') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                     <span class="fs-4">ICON</span>
@@ -31,7 +30,7 @@
                     <li class="nav-item"><a href="{{ route('show') }}" class="nav-link">Витрина</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Команда</a></li>
 
-                    <div style="display: flex; background: aliceblue;">
+                    <div class="d-flex bg-indigo-50">
                         @if (Route::has('login'))
                                 @auth
                                     <li class="nav-item"><a href="{{ url('/dashboard') }}" class="nav-link">Профиль</a></li>

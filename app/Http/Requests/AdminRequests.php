@@ -24,18 +24,18 @@ class AdminRequests extends FormRequest  {
         return [
 
             'product' => '',
-            'category' => '',
+            'category_id' => '',
             'name' => '',
-            'weght' => '',
+            'weight' => '',
             'price' => '',
             'description' => '',
             'profile_image' => '',
 
             /*
             'product' => 'required',
-            'category' => 'required',
+            'category_id' => 'required',
             'name' => 'required|min:1|max:50',
-            'weght' => 'required|min:1|max:200',
+            'weight' => 'required|min:1|max:200',
             'price' => 'required',
             'description' => 'required|min:1|max:200',
             'profile_image' => 'required|mimes:png,jpg,jpeg|max:2048',
@@ -50,7 +50,7 @@ class AdminRequests extends FormRequest  {
             'name.required' => 'Поле Имя является обязательным',
             'price.required' => 'Введите цену',
             'profile_image.required' => 'Загрузите фотографию',
-            
+
             'name.max' => 'Поле Имя должно содержать не более 50 символов',
             'description.min' => 'Поле Описание должно содержать не менее 3 символов',
             'description.max' => 'Поле Описание должно содержать не более 200 символов',

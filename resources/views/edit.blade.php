@@ -17,7 +17,7 @@
                         <div class="row row-cols-2">
                             <span> <h3>{{ $table->name }}</h3> </span>
                             <span style="color: green; text-align: end; font-size: 24px;">{{ $table->price." руб" }}</span>
-                            <span>{{ $table->category }}</span>
+                            <span>{{ $table->category_id }}</span>
                         </div>
 
                         <span>{{ $table->product }}</span>
@@ -44,15 +44,17 @@
                                         @method('PUT')
                                         @csrf
                                             <select class="form-select mb-2" autofocus required name="product">
-                                            <option style="color: green; background: #e9ecef" selected value="{{$table->product}}">{{$table->product}}</option>
-                                                <option value="Бытовой кондиционер">Бытовой кондиционер</option>
-                                                <option value="Полупромышленный кондиционер">Полупромышленный кондиционер</option>
+                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title_product }}">{{ $table->categories->title_product }}</option>
+                                                @foreach($categories as $cat)
+                                                    <option value="{{ $cat->id }}">{{ $cat->title_product }}</option>
+                                                @endforeach
                                             </select>
 
-                                            <select class="form-select form-select-sm mb-5" required name="category">
-                                            <option style="color: green; background: #e9ecef" selected value="{{$table->category}}">{{$table->category}}</option>
-                                                <option value="ZSPR-S">ZSPR-S</option>
-                                                <option value="ZS-S">ZS-S</option>
+                                            <select class="form-select form-select-sm mb-5" required name="category_id">
+                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title }}">{{ $table->categories->title }}</option>
+                                                @foreach($categories as $cat)
+                                                    <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                                                @endforeach
                                             </select>
 
                                             <div class="form-floating">
@@ -64,7 +66,7 @@
                                                 <label for="Цена">Цена</label>
                                             </div>
                                             <div class="form-floating">
-                                                <input class="form-control" placeholder="Вес товара" type="text" name="weight" value="{{$table->weght}}">
+                                                <input class="form-control" placeholder="Вес товара" type="text" name="weight" value="{{$table->weight}}">
                                                 <label for="Вес товара">Вес товара</label>
                                             </div>
 

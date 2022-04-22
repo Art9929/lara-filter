@@ -6,7 +6,6 @@
 
 <!-- Начало кода -->
 @section('content')
-
 <div class="container" style="padding: 4%;">
     <div>
         <h3>{{ $table->name }}</h3>
@@ -17,7 +16,7 @@
                         <div class="row row-cols-2">
                             <span> <h3> {{ $table->name }} </h3> </span>
                             <span style="color: green; text-align: end; font-size: 24px;"> {{ $table->price." руб" }} </span>
-                            <span> {{ $table->category }} </span>
+                            <span> {{ $table->categories->title }} </span>
                         </div>
 
                         <span> {{ $table->product }} </span>
