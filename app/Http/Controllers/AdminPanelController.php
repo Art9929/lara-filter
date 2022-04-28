@@ -18,16 +18,16 @@ class AdminPanelController extends Controller  {
 //  Витрина
     public function show()  {
         $table = new AdminPanel;
-        $categories =  Category::all();
+        $categories = Category::all();
         // $ravno = new AdminPanel;
 
-        return view('show',
+        return view('show', [
 
-            ['table' => $table->orderBy('id', 'desc')->take(4)->get()],
-            ['categories' => $categories],
-        //  ['ravno' => $ravno->where('category', '=', 'zspr')->get()],
-
-        );
+             'table' => $table->orderBy('id', 'desc')->take(6)->get(),
+             'table_name' => AdminPanel::exists(),
+             'cat' => $categories
+              //  ['ravno' => $ravno->where('category', '=', 'zspr')->get()]
+        ]);
     }
 
     // Страница Создать товар

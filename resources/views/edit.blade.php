@@ -17,10 +17,10 @@
                         <div class="row row-cols-2">
                             <span> <h3>{{ $table->name }}</h3> </span>
                             <span style="color: green; text-align: end; font-size: 24px;">{{ $table->price." руб" }}</span>
-                            <span>{{ $table->category_id }}</span>
+                            <span>{{ $table->categories->title }}</span>
                         </div>
 
-                        <span>{{ $table->product }}</span>
+                        <span>{{ $table->categories->product_title }}</span>
                         <span>{{ $table->description }}</span>
 
                         <img class="img-thumbnail" src="{{ asset($table->profile_image)  }}" title="{{ $table->name }}">
@@ -44,14 +44,14 @@
                                         @method('PUT')
                                         @csrf
                                             <select class="form-select mb-2" autofocus required name="product">
-                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title_product }}">{{ $table->categories->title_product }}</option>
+                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->product_title }}">Выберите товар</option>
                                                 @foreach($categories as $cat)
-                                                    <option value="{{ $cat->id }}">{{ $cat->title_product }}</option>
+                                                    <option value="{{ $cat->id }}">{{ $cat->product_title }}</option>
                                                 @endforeach
                                             </select>
 
                                             <select class="form-select form-select-sm mb-5" required name="category_id">
-                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title }}">{{ $table->categories->title }}</option>
+                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title }}">Выберите категорию</option>
                                                 @foreach($categories as $cat)
                                                     <option value="{{ $cat->id }}">{{ $cat->title }}</option>
                                                 @endforeach

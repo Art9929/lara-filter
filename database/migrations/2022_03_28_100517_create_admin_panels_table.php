@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('admin_panels', function (Blueprint $table) {
             $table->id();
 
-                $table->string('product')->nullable();
                 $table->string('name')->nullable();
                 $table->string('price')->nullable();
                 $table->string('weight')->nullable();
@@ -30,8 +29,10 @@ return new class extends Migration
 
             // Отношение "Один ко многим"
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
             // index - для ускоренной сортировки, фильтрации по ключу
             $table->index('category_id', 'post_category_idx');
+            $table->index('product_id', 'post_product_idx');
 
             // on - на какую таблицу ссылаться, references - на какую колонку
             $table->foreign('category_id', 'post_category_fk')->references('id')->on('categories');

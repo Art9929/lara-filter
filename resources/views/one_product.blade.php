@@ -19,7 +19,7 @@
                             <span> {{ $table->categories->title }} </span>
                         </div>
 
-                        <span> {{ $table->product }} </span>
+                        <span> {{ $table->product_title }} </span>
                         <span> {{ $table->description }} </span>
 
                         <img class="img-thumbnail" src="{{ asset($table->profile_image)  }}" title="{{ $table->name }}">

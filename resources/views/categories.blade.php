@@ -18,10 +18,10 @@
                             <span> <h3> {{ $cat->name }} </h3> </span>
                             <span style="color: green; text-align: end; font-size: 24px;"> {{ $cat->price." руб" }} </span>
                             <span> {{ $categories->title }} </span>
-                            <span style="color: grey; text-align: end; font-size: 14px;"> {{ $cat->weght." кг" }} </span>
+                            <span style="color: grey; text-align: end; font-size: 14px;"> {{ $cat->weight." кг" }} </span>
                         </div>
 
-                        <span> {{ $cat->product }} </span>
+                        <span> {{ $categories->product_title }} </span>
                         <span> {{ $cat->description }} </span>
 
                         <a href="{{ route('one-show-product', $cat->id) }}"> <img class="img-thumbnail" src="{{ asset($cat->profile_image)  }}" title="{{ $cat->name }}"></a>

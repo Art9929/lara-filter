@@ -1,6 +1,14 @@
 <?php
 
-use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\Product\AddController;
+use App\Http\Controllers\Product\CategoriesController;
+use App\Http\Controllers\Product\DeleteProductController;
+use App\Http\Controllers\Product\EditController;
+use App\Http\Controllers\Product\EditProductController;
+use App\Http\Controllers\Product\OneShowProductController;
+use App\Http\Controllers\Product\RegProdController;
+use App\Http\Controllers\Product\ShowController;
+use App\Http\Controllers\Product\TagColorController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,45 +39,52 @@ require __DIR__.'/auth.php';
 
 // My project
 
-// Main
+// Index
 Route::get('/', function () {
-    return view('main');
+    return view('index');
 })->middleware('throttle:6,1')->name('home');
 
+
+// Product
+Route::group(['nemespace' => 'Product'], function() {
 // Витрина
-Route::get('/show', [AdminPanelController::class, 'show'])
-    ->name('show');
+    Route::get('/show', [ShowController::class, '__invoke'])
+        ->name('show');
 
 // Создать товар
-Route::get('product',[AdminPanelController::class, 'add'])
-    ->name('add');
+    Route::get('product',[AddController::class, '__invoke'])
+        ->name('add');
 
-        // Добавление товаров в БД
-        Route::match(['get', 'post'], 'regprod', [AdminPanelController::class, 'regprod'])->name('regprod');
+    // Добавление товаров в БД
+    Route::match(['get', 'post'], 'regprod', [RegProdController::class, '__invoke'])->name('regprod');
 
 // Карточка товаров
-Route::get('/household/wall-mounted/{id}', [AdminPanelController::class, 'OneShowProduct'])
-    ->name('one-show-product');
+    Route::get('/household/wall-mounted/{id}', [OneShowProductController::class, '__invoke'])
+        ->name('one-show-product');
 
-        // Страница редактирования карточки товара
-        Route::get('/household/wall-mounted/{id}/edit', [AdminPanelController::class, 'edit'])
-            ->name('page-edit-product');
+    // Страница редактирования карточки товара
+    Route::get('/household/wall-mounted/{id}/edit', [EditController::class, '__invoke'])
+        ->name('page-edit-product');
 
-        // Отредактированная карточка товаров
-        Route::put('/household/wall-mounted/{id}', [AdminPanelController::class, 'EditProduct'])
-            ->name('edit-product');
+    // Отредактированная карточка товаров
+    Route::put('/household/wall-mounted/{id}', [EditProductController::class, '__invoke'])
+        ->name('edit-product');
 
-        // Удаление товара
-        Route::delete('/household/wall-mounted/{id}/delete', [AdminPanelController::class, 'DeleteProduct'])
-            ->name('delete-product');
+    // Удаление товара
+    Route::delete('/household/wall-mounted/{id}/delete', [DeleteProductController::class, '__invoke'])
+        ->name('delete-product');
 
 // Категории
-Route::get('/categories/{category_id}', [AdminPanelController::class, 'categories'])
-    ->name('categories');
+    Route::get('/categories/{category_id}', [CategoriesController::class, '__invoke'])
+        ->name('categories');
 
 // Тэги
-Route::get('/tagcolor/{id}', [AdminPanelController::class, 'TagColor'])
-    ->name('tagcolor');
+    Route::get('/tagcolor/{id}', [TagColorController::class, '__invoke'])
+        ->name('tagcolor');
+
+});
+
+
 
 /*
 
