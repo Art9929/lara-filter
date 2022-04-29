@@ -23,7 +23,6 @@ class AdminPanel extends Model
     }
 
 // Тэги
-
     public function tags() {
         return $this->belongsToMany( Tag::class, 'admin_panel_tags', 'post_id', 'tag_id');
     }

@@ -77,6 +77,7 @@
 <!-- Кнопки  -->
 
             <div class="row row-cols-auto">
+
                 <div class="col">
                     <input class="form-control
                            @error('profile_image') is-invalid @enderror"
@@ -88,15 +89,14 @@
                     @enderror
                 </div>
 
-            <div class="col">
-                    <input class="form-control" type="reset" value="Очистить"></p>
+                <div class="col">
+                        <input class="form-control" type="reset" value="Очистить"></p>
                 </div>
-            <div class="col">
-                    <button class="btn btn-success" type="submit">Добавить</button>
+                <div class="col">
+                        <button class="btn btn-success" type="submit">Добавить</button>
                 </div>
+
             </div>
-
-
     </form>
 </div>
 

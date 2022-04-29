@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\AdminPanel;
 
-class DeleteProductController extends Controller
+class DeleteProductController extends BaseController
 {
     public function __invoke($id)
     {
         AdminPanel::find($id)->delete();
+
         return redirect()->route('show');
 
         /*  "Мягкое" удаление (восстановление)

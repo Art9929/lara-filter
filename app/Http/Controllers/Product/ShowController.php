@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AdminPanel;
 use App\Models\Category;
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke()
     {

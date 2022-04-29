@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\AdminPanel;
 
-class OneShowProductController extends Controller
+class OneShowProductController extends BaseController
 {
     public function __invoke($id)
     {

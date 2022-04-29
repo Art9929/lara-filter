@@ -3,7 +3,7 @@
 use App\Http\Controllers\Product\AddController;
 use App\Http\Controllers\Product\CategoriesController;
 use App\Http\Controllers\Product\DeleteProductController;
-use App\Http\Controllers\Product\EditController;
+use App\Http\Controllers\Product\PageEditController;
 use App\Http\Controllers\Product\EditProductController;
 use App\Http\Controllers\Product\OneShowProductController;
 use App\Http\Controllers\Product\RegProdController;
@@ -63,7 +63,7 @@ Route::group(['nemespace' => 'Product'], function() {
         ->name('one-show-product');
 
     // Страница редактирования карточки товара
-    Route::get('/household/wall-mounted/{id}/edit', [EditController::class, '__invoke'])
+    Route::get('/household/wall-mounted/{id}/edit', [PageEditController::class, '__invoke'])
         ->name('page-edit-product');
 
     // Отредактированная карточка товаров

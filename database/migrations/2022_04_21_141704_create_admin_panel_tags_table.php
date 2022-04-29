@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('admin_panel_tags', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedTinyInteger('post_id');
-            $table->unsignedTinyInteger('tag_id');
+            $table->unsignedTinyInteger('post_id')->nullable();
+            $table->unsignedTinyInteger('tag_id')->nullable();
 
             $table->index('post_id', 'post_tag_post_idx');
             $table->index('tag_id', 'post_tag_tag_idx');
