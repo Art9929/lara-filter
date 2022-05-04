@@ -23,7 +23,7 @@ class IndexController extends Controller
 /*
          *
          *      0. Второй Вариант сохранения данных в БД
-                $table = new AdminPanel();
+                $table = new AdminPanelFactory();
 
                 $add = [
                     $table->product = $row->input('product'),
@@ -50,7 +50,7 @@ class IndexController extends Controller
                 2. Обращние к категориям
                 $test = Category::find(1);
 
-                $products = AdminPanel::where('category_id', $test->id)->get();
+                $products = AdminPanelFactory::where('category_id', $test->id)->get();
                 dd($test->products);
 
                 */

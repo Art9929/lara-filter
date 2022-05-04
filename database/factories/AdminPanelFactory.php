@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AdminPanel>
  */
-class ProductFactory extends Factory
+class AdminPanelFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,15 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            'name' => 'ZSPR20',
+            'price' => '100',
+            'weight' => '20',
+            'description' => 'Описание',
+            'profile_image' => 'storage/Белый_квадрат.jpg',
+            'product_id' => '1',
+
+
         ];
     }
 }

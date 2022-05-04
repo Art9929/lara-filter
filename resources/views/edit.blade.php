@@ -44,9 +44,9 @@
                                         @method('PUT')
                                         @csrf
                                             <select class="form-select mb-2 @error('product_id') is-invalid @enderror" autofocus required name="product_id">
-                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->product_title }}">Выберите товар</option>
+                                            <option style="color: green; background: #e9ecef" selected disabled value="{{ $table->categories->title_product }}">Выберите товар</option>
                                                 @foreach($categories as $cat)
-                                                    <option value="{{ $cat->id }}">{{ $cat->product_title }}</option>
+                                                    <option value="{{ $cat->id }}">{{ $cat->title_product }}</option>
                                                 @endforeach
                                             </select>
 
@@ -60,7 +60,7 @@
                                             <div class="form-floating">
                                                 <input class="form-control
                                                        @error('name') is-invalid @enderror"
-                                                       value="{{ old('name') }}"
+                                                       value="{{$table->name}}"
                                                        placeholder="Имя товара"
                                                        type="text"
                                                        name="name"
@@ -75,7 +75,7 @@
                                             <div class="form-floating">
                                                 <input class="form-control
                                                        @error('price') is-invalid @enderror"
-                                                       value="{{ old('price') }}"
+                                                       value="{{$table->price}}"
                                                        placeholder="Цена"
                                                        type="text"
                                                        name="price">
@@ -87,7 +87,11 @@
                                             </div>
 
                                             <div class="form-floating">
-                                                <input class="form-control" placeholder="Вес товара" type="text" name="weight" value="{{$table->weight}}">
+                                                <input class="form-control"
+                                                       placeholder="Вес товара" t
+                                                       ype="text"
+                                                       name="weight"
+                                                       value="{{$table->weight}}">
                                                 <label for="Вес товара">Вес товара</label>
                                             </div>
 
@@ -98,7 +102,7 @@
                                                   style="height: 100px"
                                                   placeholder="Описание товара"
                                                   type="text"
-                                                  name="description">{{ old('description') }}</textarea>
+                                                  name="description">{{ $table->description }}</textarea>
                                                 <label for="floatingTextarea2">Введите описание товара</label>
 
                                                 @error('description')

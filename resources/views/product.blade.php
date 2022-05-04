@@ -13,7 +13,7 @@
                 <select class="form-select mb-2 @error('product_id') is-invalid @enderror" autofocus required name="product_id">
                 <option selected disabled>Выберите товар</option>
                     @foreach($categories as $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->product_title }}</option>
+                        <option value="{{ $cat->id }}">{{ $cat->title_product }}</option>
                     @endforeach
                 </select>
 

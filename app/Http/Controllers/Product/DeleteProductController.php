@@ -14,7 +14,7 @@ class DeleteProductController extends BaseController
         return redirect()->route('show');
 
         /*  "Мягкое" удаление (восстановление)
-             AdminPanel::withTrashed()->find(1)->restore();
+             AdminPanelFactory::withTrashed()->find(1)->restore();
         */
     }
 }
