@@ -46,7 +46,7 @@ Route::get('/', function () {
 
 
 // Product
-Route::group(['nemespace' => 'Product'], function() {
+Route::group(['nemespace' => 'Product', 'prefix' => 'admin', 'middleware' => 'admin'], function() {
 // Витрина
     Route::get('/show', [ShowController::class, '__invoke'])
         ->name('show');

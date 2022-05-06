@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +13,9 @@ class AdminPanel extends Model
 
 //    "Мягкое удаление"
     use SoftDeletes;
+//    "подгрежаем метод Filter из Models\Traits\Filterable"
+    use Filterable;
+
 
     protected $table = 'admin_panels';
     protected $guarded = []; // Разрешает вносить значения в БД
